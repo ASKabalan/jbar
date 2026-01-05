@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jax_progress"
+name = "jbar"
 version = "0.1.0"
 description = "Progress meters for JAX loops and scans"
 authors = [
@@ -36,7 +36,7 @@ test = [
 ]
 
 [tool.pytest.ini_options]
-addopts = '-rfEX --cov=jax_progress --doctest-modules'
+addopts = '-rfEX --cov=jbar --doctest-modules'
 testpaths = [
     'tests',
 ]

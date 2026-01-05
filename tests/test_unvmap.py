@@ -3,7 +3,7 @@ import jax.numpy as jnp
 import pytest
 from jax._src.dtypes import float0
 
-from jax_progress.unvmap import unvmap_iota, unvmap_max, unvmap_min, unvmap_size
+from jbar.unvmap import unvmap_iota, unvmap_max, unvmap_min, unvmap_size
 
 
 def test_unvmap_size_no_vmap():
