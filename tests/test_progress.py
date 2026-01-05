@@ -6,7 +6,7 @@ import jax
 import jax.numpy as jnp
 from jax.sharding import PartitionSpec as P
 
-from jax_progress import TqdmProgressMeter
+from jbar import TqdmProgressMeter
 
 
 def test_vmap_vmap_with_limitation():

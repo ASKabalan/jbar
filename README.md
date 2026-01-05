@@ -1,4 +1,4 @@
-# jax-progress
+# jbar
 
 Progress meters for JAX loops, scans, and Diffrax solves.
 
@@ -12,7 +12,7 @@ Progress meters for JAX loops, scans, and Diffrax solves.
 ## Installation
 
 ```bash
-pip install jax-progress
+pip install jbar
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ pip install jax-progress
 ```python
 import jax
 import jax.numpy as jnp
-from jax_progress import TqdmProgressMeter
+from jbar import TqdmProgressMeter
 
 # Limit to 3 progress bars (shows 3 slowest tasks)
 pbar = TqdmProgressMeter(total=100, max_bars=3)

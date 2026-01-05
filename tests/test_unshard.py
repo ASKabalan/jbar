@@ -8,7 +8,7 @@ from jax import lax
 from jax.sharding import Mesh, NamedSharding
 from jax.sharding import PartitionSpec as P
 
-from jax_progress.unshard import unshard_iota, unshard_max, unshard_min, unshard_size
+from jbar.unshard import unshard_iota, unshard_max, unshard_min, unshard_size
 
 # Helper functions
 
