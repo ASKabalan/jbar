@@ -248,6 +248,7 @@ class TqdmProgressMeter(AbstractProgressMeter):
     max_bars: int = eqx.field(default=None, static=True)
     percent_progress: bool = eqx.field(default=False, static=True)
     leave: bool = eqx.field(default=True, static=True)
+    tqdm_type: str = eqx.field(default="std", static=True)
 
     def __check_init__(self):
         if importlib.util.find_spec("tqdm") is None:
@@ -290,7 +291,12 @@ class TqdmProgressMeter(AbstractProgressMeter):
 
         # Always use counter for bar assignment
         def _init_bar():
-            from tqdm.auto import tqdm
+            if self.tqdm_type == "auto":
+                from tqdm.auto import tqdm
+            elif self.tqdm_type == "notebook":
+                from tqdm.notebook import tqdm
+            else:
+                from tqdm import tqdm
 
             return tqdm(
                 total=float(self.total),
@@ -312,7 +318,7 @@ class TqdmProgressMeter(AbstractProgressMeter):
             size=size,
         )
 
-    def step(self, state: _TqdmProgressMeterState, progress=1, description_args=None) -> _TqdmProgressMeterState:
+    def step(self, state: _TqdmProgressMeterState, progress=1.0, description_args=None) -> _TqdmProgressMeterState:
         """Update the progress meter.
 
         **Arguments:**
